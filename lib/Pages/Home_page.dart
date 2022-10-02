@@ -85,7 +85,7 @@ class _MyHomePageState extends State<MyHomeApp> {
                     },
                     itemCount: listPokemone.length,
                     itemWidth: 300.0,
-                    itemHeight: 400,
+                    itemHeight: 320,
                     layout: SwiperLayout.STACK,
                   );
                 } else {
