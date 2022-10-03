@@ -6,10 +6,11 @@ class Pokemones{
   Pokemones();
 
   Pokemones.fromJsonList(jsonList){
-    if(jsonList== null) return;
-    for( var item in jsonList['pokemon']){
-        final gif = Pokemon.fromJsonMap(item);
-        items.add(gif);
+   if (jsonList == null) return;
+
+    for (var item in jsonList) {
+      final pokemon = Pokemon.fromJsonMap(item);
+      items.add(pokemon);
     }
   }
 }
@@ -19,10 +20,12 @@ class Pokemon{
   late String name;
   late String url;
 
-  Pokemon(this.name, this.url);
+  Pokemon({required this.name, required this.url});
 
-  Pokemon.fromJsonMap(Map<String, dynamic> json){
-    name = json["name"];
-    url = json["img"];
+  factory Pokemon.fromJsonMap(Map<String, dynamic> json){
+     return Pokemon(
+      name: json['name'],
+      url: json['sprites']['other']['home']['front_shiny'],
+    );
   }
 }
